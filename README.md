@@ -5,6 +5,8 @@
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-cross--platform-lightgrey)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Rust](https://img.shields.io/badge/rust-1.70%2B-blue)
 
 **Bitwave** is a high-fidelity, developer-friendly, future-proof audio format designed for modern sound experiences — including spatial audio, dynamic tempo adjustment, and multi-track support.
 
@@ -20,6 +22,7 @@
 - 🧠 **AI-enhanced compatibility** – Ready for real-time audio transformation and neural mixing
 - 💾 **Compact & efficient** – Optimized binary format with optional lossless compression
 - 📁 **Modern file extension**: `.bwx`
+- 🐍 **Python SDK** – Easy-to-use Python implementation for rapid development
 
 ---
 
@@ -37,7 +40,7 @@
 | `.bwr`    | Bitwave Raw – Uncompressed or minimally processed |
 | `.bwi`    | Bitwave Immersive – VR/AR ready, full 3D audio |
 | `.bwt`    | Bitwave Track – Optimized for music tracks |
-| `.bwp`    | Bitwave Pro – Professional content & production ready |
+| `.bwp`    | Bitwave Pro – Professional content & production ready |   
 
 ---
 
@@ -55,16 +58,86 @@
 
 ## 🚀 Getting Started
 
-### Playback Tool (coming soon)
+### Python Installation
 
 ```bash
-bwplay track.bwx
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Unix/macOS
+# or
+.\venv\Scripts\activate  # On Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install package in development mode
+pip install -e .
 ```
 
-### Encode from WAV
+### Rust Installation
 
 ```bash
-bwencode input.wav -o output.bwx --spatial --bpm 120
+# Navigate to the Rust implementation
+cd rust
+
+# Build the project
+cargo build
+
+# Run tests
+cargo test
+
+# Build documentation
+cargo doc --open
+```
+
+### Command Line Tools
+
+```bash
+# Get information about a Bitwave file
+bitwave info file.bwx
+
+# Convert audio files (coming soon)
+bitwave convert input.wav output.bwx --bpm 120
+```
+
+### Python API
+
+```python
+from bitwave import BitwaveFile
+
+# Read a Bitwave file
+bw_file = BitwaveFile("track.bwx")
+bw_file.read()
+metadata = bw_file.get_metadata()
+
+# Write a Bitwave file
+bw_file.write(
+    audio_data=np.array(...),  # 2D array (samples x channels)
+    sample_rate=44100,
+    bpm=120,
+    spatial_data=np.array(...)  # Optional spatial data
+)
+```
+
+### Rust API
+
+```rust
+use bitwave::{BitwaveFile, Metadata, SpatialData};
+
+// Read a Bitwave file
+let file = BitwaveFile::read("track.bwx")?;
+let metadata = file.metadata();
+
+// Write a Bitwave file
+let metadata = Metadata {
+    sample_rate: 44100,
+    channels: 2,
+    duration: 0.0,
+    bpm: Some(120.0),
+};
+
+let file = BitwaveFile::new(metadata, None, audio_data);
+file.write("output.bwx")?;
 ```
 
 ---
@@ -82,7 +155,7 @@ bwencode input.wav -o output.bwx --spatial --bpm 120
 ## 🛠️ Developer Tools
 
 - CLI tools for encoding/decoding (`bwencode`, `bwdecode`)
-- Python & Rust libraries coming soon
+- Python SDK with NumPy integration
 - Plugin support for DAWs (Ableton, FL, Reaper, etc.)
 
 ---
@@ -90,6 +163,7 @@ bwencode input.wav -o output.bwx --spatial --bpm 120
 ## 🧪 Roadmap
 
 - [x] Core `.bwx` format & parser
+- [x] Python SDK implementation
 - [ ] Lossless & hybrid compression support
 - [ ] Open source cross-platform player
 - [ ] Realtime tempo-sync with MIDI/OSC
@@ -99,7 +173,7 @@ bwencode input.wav -o output.bwx --spatial --bpm 120
 
 ## 💬 Community & Feedback
 
-We’re building Bitwave in the open. Feedback, feature requests, and contributors are welcome!
+We're building Bitwave in the open. Feedback, feature requests, and contributors are welcome!
 
 👉 [Issues](https://github.com/makalin/Bitwave/issues) • [Discussions](https://github.com/makalin/Bitwave/discussions)
 

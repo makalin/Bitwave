@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+target/
+Cargo.lock
+
+# Build outputs
+dist/
+build/
+*.o
+*.so
+*.dylib
+*.dll
+*.exe
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Audio files and test data
+*.wav
+*.mp3
+*.flac
+*.aiff
+*.ogg
+*.m4a
+*.bwx
+*.bw2
+*.bwa
+*.bwm
+*.bwd
+*.bwl
+*.bwf
+*.bwr
+*.bwi
+*.bwt
+*.bwp
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp 
