@@ -26,6 +26,46 @@
 
 ---
 
+## 🎵 Cross-Platform Player
+
+Bitwave comes with a modern, feature-rich player that works on both macOS and Windows:
+
+### Player Features
+
+- 🎨 **Modern UI** – Clean, intuitive interface with dark mode support
+- 📊 **Waveform Visualization** – Real-time waveform display with playback position
+- 🎚️ **Volume Control** – Smooth volume adjustment with keyboard shortcuts
+- 📋 **Playlist Support** – Create, save, and load playlists (M3U format)
+- 🌐 **Spatial Audio Visualization** – 3D visualization of spatial audio data
+- 📝 **Metadata Display** – View track information, duration, and BPM
+- ⌨️ **Keyboard Shortcuts** – Quick access to all playback controls
+- 🎯 **System Tray Integration** – Control playback from the system tray
+
+### Player Controls
+
+| Action | Keyboard Shortcut | Description |
+|--------|------------------|-------------|
+| Play/Pause | Space | Toggle playback |
+| Next Track | Right Arrow | Play next track |
+| Previous Track | Left Arrow | Play previous track |
+| Volume Up | Up Arrow | Increase volume |
+| Volume Down | Down Arrow | Decrease volume |
+| Open File | Ctrl+O | Open Bitwave file |
+| Save Playlist | Ctrl+S | Save current playlist |
+| Load Playlist | Ctrl+L | Load saved playlist |
+
+### Running the Player
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the player
+python player/run.py
+```
+
+---
+
 ## 🧩 Supported Extensions
 
 | Extension | Description |
@@ -157,6 +197,7 @@ file.write("output.bwx")?;
 - CLI tools for encoding/decoding (`bwencode`, `bwdecode`)
 - Python SDK with NumPy integration
 - Plugin support for DAWs (Ableton, FL, Reaper, etc.)
+- Cross-platform player with advanced features
 
 ---
 
@@ -164,8 +205,8 @@ file.write("output.bwx")?;
 
 - [x] Core `.bwx` format & parser
 - [x] Python SDK implementation
+- [x] Open source cross-platform player
 - [ ] Lossless & hybrid compression support
-- [ ] Open source cross-platform player
 - [ ] Realtime tempo-sync with MIDI/OSC
 - [ ] Plugin SDK for audio software
 
